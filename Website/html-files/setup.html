@@ -3,97 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup Guide - FC Project Documentation</title>
+    <title>Setup Guide - ShiroFPV Flight Controller</title>
     <style>
-        /* Basic styles */
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        /* Header and Navigation */
+
         header {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 1rem 0;
-            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
-        nav {
-            background-color: #34495e;
-            padding: 0.5rem 0;
-            text-align: center;
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
         nav a {
-            color: #ecf0f1;
             text-decoration: none;
-            padding: 10px 15px;
-            display: inline-block;
-            transition: background-color 0.3s;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 16px;
+            border-radius: 5px;
         }
+
         nav a:hover {
-            background-color: #2c3e50;
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
         }
-        /* Main Content */
-        main {
-            background-color: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            line-height: 1.6;
+
+        nav a.active {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.15);
         }
-        /* Documentation Sections */
-        .doc-section {
-            margin-bottom: 30px;
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
-        .doc-section h2 {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-            color: #2c3e50;
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 40px;
         }
-        /* Footer */
-        footer {
+
+        .page-title {
+            flex: 1;
+        }
+
+        .page-title h1 {
+            font-size: 42px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .page-title .subtitle {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .image-placeholder {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px dashed #667eea;
+            font-size: 14px;
+            color: #667eea;
             text-align: center;
             padding: 20px;
-            margin-top: 20px;
-            color: #777;
-            border-top: 1px solid #ccc;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .content h2 {
+            color: #667eea;
+            margin: 35px 0 20px 0;
+            font-size: 28px;
+        }
+
+        .content h3 {
+            color: #333;
+            margin: 25px 0 15px 0;
+            font-size: 20px;
+        }
+
+        .content p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .step-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .step-box h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .step-box p,
+        .step-box ol,
+        .step-box li {
+            color: #333;
+        }
+
+        .content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .content ul {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        .content li {
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .warning-box p {
+            margin: 0;
+            color: #856404;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .success-box p {
+            margin: 0;
+            color: #155724;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 0;
+            margin-top: 60px;
+            text-align: center;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+            }
+
+            .image-placeholder {
+                width: 100%;
+                height: 200px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>FC Project Documentation</h1>
-        <p>Setup Guide</p>
+        <div class="header-content">
+            <div class="logo">ShiroFPV</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="overview.html">Overview</a></li>
+                    <li><a href="hardware.html">Hardware</a></li>
+                    <li><a href="software.html">Software</a></li>
+                    <li><a href="setup.html" class="active">Setup Guide</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <a href="../index.html">Main Page</a>
-    </nav>
-
     <div class="container">
-        <main>
-            <section class="doc-section">
-                <h2>4. Getting Started: Setup Guide</h2>
-                <h3>Step 1: Flashing the Firmware</h3>
-                <p>Connect the FC to your computer using a USB cable. Open the Betaflight Configurator and navigate to the "Firmware Flasher" tab. Select the correct board target and load the hex file you downloaded. Click "Flash Firmware".</p>
-                <h3>Step 2: Initial Configuration</h3>
-                <p>After flashing, reconnect to the FC. Go through the normal steps of setting up a new flight controller.</p>
-                <h3>Step 3: ...</h3>
-            </section>
-        </main>
+        <div class="content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Setup Guide</h1>
+                    <p class="subtitle">Step-by-step instructions to get your ShiroFPV flight controller ready to fly</p>
+                </div>
+                <div class="image-placeholder">
+                    <!-- Replace with: <img src="images/setup_guide.jpg" alt="ShiroFPV Setup" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;"> -->
+                    Setup Image
+                </div>
+            </div>
+
+            <h2>Prerequisites</h2>
+            <p>Before you begin, make sure you have the following:</p>
+            <ul>
+                <li>ShiroFPV flight controller</li>
+                <li>USB cable (appropriate type for your FC)</li>
+                <li>Computer with Betaflight Configurator installed</li>
+                <li>Latest firmware hex file downloaded from GitHub</li>
+                <li>Drone frame with motors and ESCs installed</li>
+            </ul>
+
+            <div class="step-box">
+                <h3>Step 1: Install Betaflight Configurator</h3>
+                <p>Download and install Betaflight Configurator from <a href="https://betaflight.com/downloads" target="_blank" style="color: #667eea;">betaflight.com/downloads</a>. Choose the appropriate version for your operating system (Windows, macOS, or Linux).</p>
+            </div>
+
+            <div class="step-box">
+                <h3>Step 2: Download Firmware</h3>
+                <p>Visit the <a href="https://github.com/ShiroFPV/ShiroFPV-Flight-Controller-Public/releases" target="_blank" style="color: #667eea;">GitHub releases page</a> and download the latest firmware hex file for your ShiroFPV flight controller.</p>
+            </div>
+
+            <h2>Flashing the Firmware</h2>
+
+            <div class="step-box">
+                <h3>Step 3: Connect to Computer</h3>
+                <ol>
+                    <li>Connect your ShiroFPV flight controller to your computer using a USB cable</li>
+                    <li>Open Betaflight Configurator</li>
+                    <li>Wait for the computer to recognize the device</li>
+                </ol>
+            </div>
+
+            <div class="step-box">
+                <h3>Step 4: Enter DFU Mode</h3>
+                <ol>
+                    <li>In Betaflight Configurator, navigate to the "Firmware Flasher" tab</li>
+                    <li>If the FC doesn't automatically enter DFU mode, hold the boot button (if present) while plugging in USB</li>
+                    <li>Verify that the configurator detects the board in DFU mode</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>Important:</strong> Make sure to select "Full chip erase" when flashing firmware for the first time or when switching between major versions.</p>
+            </div>
+
+            <div class="step-box">
+                <h3>Step 5: Flash Firmware</h3>
+                <ol>
+                    <li>Select "Load Firmware [Local]" and choose the hex file you downloaded</li>
+                    <li>Enable "Full chip erase" (recommended for first flash)</li>
+                    <li>Click "Flash Firmware" and wait for the process to complete</li>
+                    <li>Do not disconnect USB during flashing</li>
+                </ol>
+            </div>
+
+            <h2>Initial Configuration</h2>
+
+            <div class="step-box">
+                <h3>Step 6: Connect and Configure</h3>
+                <ol>
+                    <li>After flashing completes, disconnect and reconnect the USB cable</li>
+                    <li>Click "Connect" in Betaflight Configurator</li>
+                    <li>Navigate to the "Setup" tab to verify the board is working correctly</li>
+                    <li>Check that the 3D model responds to FC movement</li>
+                </ol>
+            </div>
+
+            <div class="step-box">
+                <h3>Step 7: Basic Configuration</h3>
+                <ol>
+                    <li><strong>Ports Tab:</strong> Configure UART ports for your receiver, GPS, or other peripherals</li>
+                    <li><strong>Configuration Tab:</strong> Set motor protocol, ESC type, and other basic settings</li>
+                    <li><strong>Receiver Tab:</strong> Configure your radio receiver and verify stick inputs</li>
+                    <li><strong>Modes Tab:</strong> Set up ARM switch and flight modes</li>
+                    <li><strong>Motors Tab:</strong> Test motor direction and order (props off!)</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>Safety First:</strong> Always remove propellers when testing motors and configuring your flight controller!</p>
+            </div>
+
+            <h2>Final Steps</h2>
+
+            <div class="step-box">
+                <h3>Step 8: Sensor Calibration</h3>
+                <ol>
+                    <li>Place the drone on a flat, level surface</li>
+                    <li>Go to the "Setup" tab and click "Calibrate Accelerometer"</li>
+                    <li>Wait for calibration to complete</li>
+                    <li>Test that the level indicator is accurate</li>
+                </ol>
+            </div>
+
+            <div class="step-box">
+                <h3>Step 9: PID Tuning (Optional)</h3>
+                <p>For initial flights, the default PID values should work well. After some test flights, you can fine-tune the PID values in the "PID Tuning" tab to optimize flight characteristics for your specific setup.</p>
+            </div>
+
+            <div class="success-box">
+                <p><strong>Ready to Fly!</strong> Your ShiroFPV flight controller is now configured and ready for test flights. Always perform a safety check before flying and start with low-throttle hover tests in a safe area.</p>
+            </div>
+
+            <h2>Troubleshooting</h2>
+            <ul>
+                <li><strong>FC not connecting:</strong> Try a different USB cable or port. Some cables are charge-only.</li>
+                <li><strong>DFU mode not working:</strong> Look for a boot button on the FC or short the boot pads while connecting USB.</li>
+                <li><strong>Motors not spinning:</strong> Check motor protocol settings, ESC connections, and motor direction.</li>
+                <li><strong>Receiver not binding:</strong> Verify correct UART configuration and receiver protocol settings.</li>
+            </ul>
+
+            <p>For additional support, visit the GitHub repository issues page or join the FPV community forums.</p>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 ShiroFPV. All Rights Reserved.</p>
+        <p>&copy; 2026 ShiroFPV. Open Source Hardware Project.</p>
     </footer>
-
 </body>
 </html>
