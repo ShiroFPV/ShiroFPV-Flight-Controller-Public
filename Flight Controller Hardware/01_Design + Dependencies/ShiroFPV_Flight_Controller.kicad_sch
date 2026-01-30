@@ -16861,7 +16861,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "209e1d31-f404-4bfb-b23e-82c57c7c6d25")
 		(property "Reference" "D2"
 			(at 265.43 119.6974 90)
@@ -16872,8 +16871,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
-			(at 265.43 122.2374 90)
+		(property "Value" "C2986058"
+			(at 262.382 126.492 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24024,7 +24023,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "aad4047a-1321-46e1-8f42-d7eaba5d8ef3")
 		(property "Reference" "D3"
 			(at 276.86 119.6974 90)
@@ -24035,8 +24033,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
-			(at 276.86 122.2374 90)
+		(property "Value" "C72038"
+			(at 274.32 126.492 90)
 			(effects
 				(font
 					(size 1.27 1.27)
