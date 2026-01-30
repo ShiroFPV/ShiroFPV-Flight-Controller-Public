@@ -1,30 +1,15 @@
-Welcome to the official documentation for the **ShroFPV flight controller**. This repository hosts the complete hardware and software documentation.
+## 📖 Credits 
+This project was heavily inspired by the amazing work of AcciFPV. Their creativity and open sharing within the FPV community motivated me to start developing my own hardware. While this design is fully original, AcciFPV’s approach and passion for innovation definitely sparked many of the ideas behind it. Huge thanks to them for contributing so much to the FPV scene — check out their projects for more awesome stuff!
+[Github](https://gist.github.com/jesuslg123)
+[AcciFPV Flight Controller](https://oshwlab.com/jesuslg123/f4-v1)
 
 ## 📖 Documentation
 
 This repository includes a full website with detailed documentation. You can view the live documentation here:
 
-[Website](https://shirofpv.github.io/No-Files-yet-ShiroFPV-Flight-Controller)
+[Website](https://shirofpv.github.io/ShiroFPV-Flight-Controller-Public/Website/index.html)
 
 The documentation covers:
-* **Hardware Specifications:** A full breakdown of components and board layout.
-* **Software & Firmware:** Information on compatible firmware (Betaflight, EmuFlight, iNav, etc.) and how to get the latest builds.
-* **Setup Guide:** A step-by-step guide to flashing firmware, calibrating sensors, and getting your drone in the air.
-
-## 🛠️ Getting Started
-
-### Flashing Pre-compiled Firmware
-
-1.  Download the latest firmware `.hex` file from the Releases page.
-2.  Connect your FC to your computer via USB.
-3.  Open the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) and navigate to the **Firmware Flasher** tab.
-4.  Select the correct board target: `ShiroFPV F405 V01`
-5.  Click **"Load Firmware [Local]"** and select the `.hex` file you downloaded.
-6.  Click **"Flash Firmware"** and wait for the process to complete.
-
----
-
-## 🗺️ Roadmap
-
-* At fist the Stuff mentioned above will be Progressivly uploaded.
-* The goals for This projet are to have a full FC and ESC Stack wich might get sold at some point.
+* **Hardware Specifications:** A breakdown of components.
+* **Software & Firmware:** Information on compatible firmware (Betaflight) and how to get the latest builds.
+* **Setup Guide:** A step-by-step guide to flashing firmware, and getting your drone in the air.

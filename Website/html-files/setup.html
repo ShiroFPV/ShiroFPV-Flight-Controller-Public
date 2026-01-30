@@ -262,14 +262,17 @@
                     <h1>Setup Guide</h1>
                     <p class="subtitle">Step-by-step instructions to get your ShiroFPV flight controller ready to fly</p>
                 </div>
-                <div class="image-placeholder">
-                    <!-- Replace with: <img src="images/setup_guide.jpg" alt="ShiroFPV Setup" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;"> -->
-                    Setup Image
+                <img src="../pictures/Questionmark.png" alt="Betaflight Logo"
+                     style="width: 15%; height: 15%; object-fit: contain; border-radius: 15px;">
                 </div>
             </div>
 
+            <div class="content">
             <h2>Prerequisites</h2>
-            <p>Before you begin, make sure you have the following:</p>
+            
+        <div class="step-box">
+            <h3>Before you begin, make sure you have the following:</h3>
+            
             <ul>
                 <li>ShiroFPV flight controller</li>
                 <li>USB cable (appropriate type for your FC)</li>
@@ -277,10 +280,11 @@
                 <li>Latest firmware hex file downloaded from GitHub</li>
                 <li>Drone frame with motors and ESCs installed</li>
             </ul>
+        </div>
 
             <div class="step-box">
                 <h3>Step 1: Install Betaflight Configurator</h3>
-                <p>Download and install Betaflight Configurator from <a href="https://betaflight.com/downloads" target="_blank" style="color: #667eea;">betaflight.com/downloads</a>. Choose the appropriate version for your operating system (Windows, macOS, or Linux).</p>
+                <p>Download and install Betaflight Configurator from <a href="https://betaflight.com/download" target="_blank" style="color: #667eea;">betaflight.com/download</a>. Choose the appropriate version for your operating system (Windows, macOS, or Linux).</p>
             </div>
 
             <div class="step-box">
@@ -293,7 +297,7 @@
             <div class="step-box">
                 <h3>Step 3: Connect to Computer</h3>
                 <ol>
-                    <li>Connect your ShiroFPV flight controller to your computer using a USB cable</li>
+                    <li>Connect your ShiroFPV flight controller to your computer using a USB cable (If you plan on Flashing the Device you may need an External Powersource like a Lipo)</li>
                     <li>Open Betaflight Configurator</li>
                     <li>Wait for the computer to recognize the device</li>
                 </ol>
@@ -303,7 +307,7 @@
                 <h3>Step 4: Enter DFU Mode</h3>
                 <ol>
                     <li>In Betaflight Configurator, navigate to the "Firmware Flasher" tab</li>
-                    <li>If the FC doesn't automatically enter DFU mode, hold the boot button (if present) while plugging in USB</li>
+                    <li>If the FC doesn't automatically enter DFU mode, you may bridge the Boot Solder pads wich are found on the underside of the FC, while plugging in USB</li>
                     <li>Verify that the configurator detects the board in DFU mode</li>
                 </ol>
             </div>
