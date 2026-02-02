@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ShiroFPV_LIB")(type "KiCad")(uri "${KIPRJMOD}/Own Stuff/ShiroFPV_LIB.kicad_sym")(options "")(descr ""))
+  (lib (name "BF_Connector_Standardized")(type "KiCad")(uri "${KIPRJMOD}/Own Stuff/BF_Connector_Standardized.kicad_sym")(options "")(descr ""))
+)
